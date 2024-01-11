@@ -1,13 +1,16 @@
 import fs from "fs";
 import http from "http";
-import os from "os";
+import {dirname} from "path";
+import { fileURLToPath } from "url";
 import path from "path";
-import pokemon from "pokemon";
 
 const PORT=5000;
 const hostname="localhost";
 //fs module
-const home=fs.readFileSync("./index.html",()=>{
+const __filename=fileURLToPath(import.meta.url);
+const __dirname=dirname(__filename);
+const filepath=path.join(__dirname,"index.html")
+const home=fs.readFileSync(filepath,()=>{
     console.log(home);
 });
 //path module
@@ -17,8 +20,8 @@ const home=fs.readFileSync("./index.html",()=>{
 // console.log(b)
 
 //os module
-//console.log(os.freemem());
-//console.log(os.hostname());
+// console.log(os.freemem());
+// console.log(os.hostname());
 
 //Third party module- pokemon module
 // console.log(pokemon.random());
@@ -31,6 +34,9 @@ if(req.url==="/"){
 }
 else if(req.url==="/about"){
     return res.end("<h1>About Page</h1>");
+}
+else{
+    res.end("<h1>Page not Found</h1>")
 }
 });
 
