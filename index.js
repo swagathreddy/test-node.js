@@ -11,17 +11,17 @@ const home=fs.readFileSync("./index.html",()=>{
     console.log(home);
 });
 //path module
-const a = path.extname("test2/index.js");
-console.log(a)
-const b=path.basename("/a/dev/test2");
-console.log(b)
+// const a = path.extname("test2/index.js");
+// console.log(a)
+// const b=path.basename("/a/dev/test2");
+// console.log(b)
 
 //os module
-console.log(os.freemem());
-console.log(os.hostname());
+//console.log(os.freemem());
+//console.log(os.hostname());
 
 //Third party module- pokemon module
-console.log(pokemon.random());
+// console.log(pokemon.random());
 
 //basic routing and creating server
 const server=http.createServer((req,res)=>{
